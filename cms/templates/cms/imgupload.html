@@ -1,0 +1,103 @@
+{% extends "cms/layout.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container-fluid">
+
+  <!-- Content Row -->
+  <div class="row">
+    <div class="upload_box">
+<form action="{% url 'imgupload' %}" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="title">Title</label>
+    <input id="title" type="text" class="form-control" placeholder="Title" name="title">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="category">Category</label>
+    <select id="category" class="form-control" name="category">
+      <option selected>Choose...</option>
+      <option>Home Interior</option>
+      <option>Corporate</option>
+      <option>Contemporary</option>
+    </select>
+  </div>
+</div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="desc">Desciption</label>
+      <input type="text" class="form-control" id="description" placeholder="Desciption" name="description">
+    </div>
+    <div class="form-group col-md-12">
+      <label for="upload">Image Upload</label>
+    <input type="file" multiple>
+    </div>
+  </div>
+
+<button type="submit" id="saveBtn" class="btn btn-primary">Submit</button>
+</form>
+
+  </div>
+</div>
+
+</div>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var files = []
+    const inputElement = document.querySelector('input[type="file"]');
+    const pond = FilePond.create( inputElement,{
+      onaddfile: (err, fileItem) => {
+        files.push(fileItem.file)
+        console.log(files)
+      },
+      onremovefile: (err, fileItem) => {
+        const index = files.indexOf(fileItem.file)
+        if (index > -1) {
+          files.splice(index, 1)
+        }
+        console.log(files)
+      }
+    });
+    
+    var formData = new FormData();
+    $(document).on('click', '#saveBtn', function(e) {
+      formData.append('length',files.length)
+      formData.append('title', $('#title').val())
+      formData.append('category', $('#category').val())
+      formData.append('description', $('#description').val())
+      console.log(typeof files.length)
+      for (var i = 0; i < files.length; i++) {
+        formData.append('images' + i, files[i])
+      }
+
+    formData.append('csrfmiddlewaretoken', '{{ csrf_token }}')
+    
+      $.ajax({
+          type: 'POST',
+          url: '{% url "imgupload" %}',
+          data: formData,
+          cache: false,
+          processData: false,
+          contentType: false,
+          enctype: 'multipart/form-data',
+          success: function (){
+              alert('The post has been created!')
+          },
+          error: function(xhr, errmsg, err) {
+              console.log(xhr.status + ":" + xhr.responseText)  
+          }
+      })
+    })
+
+  })
+</script> 
+
+{% endblock %}

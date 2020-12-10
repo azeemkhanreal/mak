@@ -1,0 +1,66 @@
+{% extends 'art/base.html' %}
+
+{% block content %}
+{% load static %}
+<div id="page-about">
+<!--________________
+Founder's Message  ____________________-->
+
+<div class="container" id="message">
+    <div class="row">
+        <div class="col-md-4 founder_image">
+            <div class="card">
+                <div class="box">
+                    <div class="img">
+                        <img src="{% static 'art/images/aazam.jpg' %}" alt="" width="auto" height="200px">
+                    </div>
+                    <h2>Mohammad Aazam Khan</h2>
+                    <!-- <h6>Artist</h6> -->
+                    <span>
+                        <ul>
+                            <li><a href="https://www.facebook.com/mohammad.aazamkhan.7" target="_blank"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.twitter.com/ArtworksMak" target="_blank"><i class="fa fa-twitter"
+                                        aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.instagram.com/makartworks" target="_blank"><i class="fa fa-instagram"
+                                        aria-hidden="true"></i></a></li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 founder_content">
+            <h1 class="text-left"> founder</h1>
+            <p>
+                {% for content in main_info %}
+                {{content.founder_message}}
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+
+</div>
+
+
+<!--________________
+how we work  ____________________-->
+
+<div class="container" id="how-we-work">
+    <div class="row">
+        <div class="col-md-8" id="about_content">
+            <h1> How We work</h1>
+            <p>
+                {% for content in main_info %}
+                    {{content.how_we_work}}
+                {% endfor %}
+            </p>
+        </div>
+        <div class="col-md-4 how_we_work_img">
+            <img class="img-responsive" src="{% static 'art/images/side_image.jpeg' %}" alt="">
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

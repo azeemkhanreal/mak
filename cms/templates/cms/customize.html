@@ -1,0 +1,44 @@
+{% extends "cms/layout.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container-fluid">
+
+    <!-- Content Row -->
+    <div class="row">
+
+     <div class="custombox col-md-12">
+
+    <form action="{% url 'customize' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="founder_message" style="color: black;">Founder Message
+                </label>
+                {% for content in main_info %}
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="founder_message" value="">{{content.founder_message}}</textarea>
+                {% endfor %}
+            </div>
+            <div class="form-group col-md-12">
+                <label for="how_we_work" style="color: black;">How We Work
+                </label>
+                {% for content in main_info %}
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="how_we_work"
+                    value="">{{content.how_we_work}}</textarea>
+                {% endfor %}
+            </div>
+
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
+

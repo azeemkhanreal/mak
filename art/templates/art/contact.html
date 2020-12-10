@@ -1,0 +1,42 @@
+{% extends 'art/base.html' %}
+
+{% block content %}
+{% load static %}
+<header>
+    <div id="page-info" class="container">
+            <div class="page-info-title">
+                <h1>Contact us</h1>
+            </div> <br>
+            <div class="page-info-desc">
+                <!-- <p></p> -->
+            </div>
+    </div>
+</header>
+
+
+<section class="contact-section">
+    <form class="contact-form row" action="{% url 'contact' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-field col-lg-6">
+            <input id="name" name="name" class="input-text js-input" type="text" required>
+            <label class="label" for="name">Name</label>
+        </div>
+        <div class="form-field col-lg-6">
+            <input id="email" name="email" class="input-text js-input" type="email" required>
+            <label class="label" for="email">E-mail</label>
+        </div>
+        <div class="form-field col-lg-6">
+            <input id="phone" name="phone" class="input-text js-input" type="tel" required>
+            <label class="label" for="phone">Mobile Number</label>
+        </div>
+        <div class="form-field col-lg-6">
+            <input id="message_input" name="message" class="input-text js-input" type="text" required>
+            <label class="label" for="message">Message</label>
+        </div>
+        <div class="form-field col-lg-12 text-center">
+            <input class="submit-btn" type="submit" value="Submit">
+        </div>
+    </form>
+</section>
+
+{% endblock %}

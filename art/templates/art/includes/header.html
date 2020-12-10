@@ -1,0 +1,77 @@
+{% load static %}
+
+<!-- Header
+    ==========================================-->
+<div id="header">
+
+    <!-- topbar -->
+    <nav class="navbar navbar-light fixed-top  navbar-expand-md navbar-no-bg">
+            <div class="brand-logo">
+                <a href="{% url 'index' %}">
+                    <img class="img-responsive" src="{% static 'art/images/logo.png' %}" alt=""> </a>
+                <!-- <span>Mak artworks</span> -->
+            </div>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="{% url 'about' %}">
+                            <i class="fa fa-black-tie" aria-hidden="true"></i> &nbsp;About us</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Company
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Link 1</a>
+                            <a class="dropdown-item" href="#">Link 2</a>
+                            <a class="dropdown-item" href="#">Link 3</a>
+                        </div>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="{% url 'portfolio' %}"><i class="fa fa-camera" aria-hidden="true"></i> &nbsp; portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="{% url 'client' %}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;Client</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#section-3"><i class="fa fa-paint-brush" aria-hidden="true"></i> &nbsp;Workshop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="{% url 'contact' %}"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;contact</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        <div class="social-icon ">
+            <ul class="navbar-nav mr-auto nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light" href="https://www.facebook.com/makartworks.2020">
+                        <i style="color: #3b5999;" class="fa fa-facebook-official" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light" href="https://www.twitter.com/ArtworksMak">
+                        <i style="color:#55acee;" class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light" href="https://www.instagram.com/makartworks">
+                        <i style="color:#e4405f;" class="fa fa-instagram"></i>
+                    </a>
+                </li>
+
+        
+            </ul>
+        
+        </div>
+
+    </nav>
+   
+  
+

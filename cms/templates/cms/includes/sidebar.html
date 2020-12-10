@@ -1,0 +1,127 @@
+{% load static %}
+
+
+<!-- Sidebar -->
+<ul class="navbar-nav sidebar accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'dashboard' %}">
+        <!-- <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-newspaper"></i>
+        </div> -->
+        <div class="sidebar-brand-logo">
+            <img src="{% static 'art/images/logo.png' %}" alt="">
+        </div>
+        <!-- <div class="sidebar-brand-text mx-3">MAK Artworks</div> -->
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'dashboard' %}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Portfolio
+    </div>
+ {% with url_name=request.resolver_match.url_name %}
+
+
+    <!-- Nav Item - Customer Collapse Menu -->
+    <li {% if url_name == 'imgupload' %} class='active nav-item' {% else %}class='nav-item' {% endif %}>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePortfolio"
+            aria-expanded="true" aria-controls="collapsePages">
+<i class="far fa-file-image"></i>
+            <span>Portfolio</span>
+        </a>
+        <div id="collapsePortfolio"  {% if url_name == 'imgupload' %}class='show collapse'
+            {% else %}class='collapse' {% endif %}  aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Customer</h6> -->
+                <a {% if url_name == 'imgupload' %}class='active collapse-item' {% else %}class='collapse-item'
+                    {% endif %} href="{% url 'imgupload' %}">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Image Upload</span>
+            </a>
+
+            </div>
+        </div>
+    </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Clients
+        </div>
+        
+        <!-- Nav Item - Customer Collapse Menu -->
+        <li {% if url_name == 'client_upload' %} class='active nav-item' {% else %}class='nav-item' {% endif %}>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClient" aria-expanded="true"
+                aria-controls="collapsePages">
+                <i class="far fa-file-image"></i>
+                <span>Client</span>
+            </a>
+            <div id="collapseClient" {% if url_name == 'client_upload' %}class='show collapse'
+            {% else %}class='collapse' {% endif %}  aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a {% if url_name == 'client_upload' %}class='active collapse-item' {% else %}class='collapse-item'
+                    {% endif %} href="{% url 'client_upload' %}">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Image Upload</span>
+                    </a>
+                </div>
+            </div>
+        
+        </li>
+
+
+
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Customization
+    </div>
+    
+    <!-- Nav Item - Customer Collapse Menu -->
+    <li {% if url_name == 'banner_image' or url_name == 'customize' %} class='active nav-item' {% else %}class='nav-item' {% endif %}>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCustomize" aria-expanded="true"
+            aria-controls="collapseCustomize">
+            <i class="far fa-file-image"></i>
+            <span>Configuration</span>
+        </a>
+        <div id="collapseCustomize" {% if url_name == 'banner_image'  or url_name == 'customize' %}class='show collapse'
+            {% else %}class='collapse' {% endif %}   aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a {% if url_name == 'banner_image' %}class='active collapse-item' {% else %}class='collapse-item'
+                    {% endif %} href="{% url 'banner_image' %}">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Banner Images</span>
+                </a>
+                <a {% if url_name == 'customize' %}class='active collapse-item' {% else %}class='collapse-item' {% endif %}
+                    href="{% url 'customize' %}">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Customize</span>
+                </a>
+            </div>
+        </div>
+        
+    </li>
+
+    {% endwith %}
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>
+<!-- End of Sidebar -->

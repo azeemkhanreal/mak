@@ -1,0 +1,30 @@
+{% extends 'art/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<header>
+    <div id="page-info" class="container">
+            <div class="page-info-title">
+                <h1>Client</h1>
+            </div> <br>
+            <div class="page-info-desc">
+                <!-- <p></p> -->
+            </div>
+    </div>
+</header>
+
+
+<div class="container client-item">
+    <div class="row">
+        {% for item in client %}
+            <div class="col-md-2">
+                <div class="box">
+                    <img src="/media/{{item.cimage}}" alt="">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

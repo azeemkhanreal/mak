@@ -1,0 +1,56 @@
+{% extends "art/base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="top-content">
+    <div id="header_slideshow" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <!-- <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul> -->
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+
+                    {% for item in banner_image %}
+            {% if forloop.first %}
+            <div class="carousel-item active">
+                <img src="/media/{{ item.bimage }}" alt="Los Angeles" width="1100" height="500">
+                <div class="carousel-caption">
+                    <h3>{{item.bimage_title}}</h3>
+                    <p>{{item.bimage_desc}}</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="carousel-item">
+                <img src="/media/{{item.bimage}}" alt="Los Angeles" width="1100" height="500">
+                <div class="carousel-caption">
+                    <h3>{{item.bimage_title}}</h3>
+                    <p>{{item.bimage_desc}}</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#header_slideshow" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#header_slideshow" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+</div>
+
+</div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

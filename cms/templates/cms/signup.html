@@ -1,0 +1,33 @@
+{% extends "cms/base.html" %}
+{% block content %}
+
+<form action="{% url 'signup' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group row">
+        <label class="col-sm-2 form-label">Username</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Username" name="username">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 form-label">Confirm Password</label>
+        <div class="col-sm-10">
+            <input type="password" name="c_password" class="form-control" placeholder="Password">
+        </div>
+    </div>
+    <center><button type="submit" class="btn btn-primary btn-md text-center"> Access </button></center>
+    {% if error %}
+    <p style="color:red" class=error><strong>Error:</strong> {{ error }}
+        {% endif %}
+</form>
+<!-- <button type="submit" class="btn btn-secondary btn-md text-center"> Forget? </button>
+<a href="{% url 'login' %}"><button type="submit" class="btn btn-secondary btn-md text-center float-right"> Login? -->
+    </button></a>
+
+{% endblock %}

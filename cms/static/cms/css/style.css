@@ -1,0 +1,106 @@
+/****************/
+/*   Sidebar   */
+/****************/
+#content{
+    background: #f1f1f1;
+}
+#accordionSidebar{
+    background-color: #303641 !important;
+}
+.breadcrumb li{
+    padding: 0 15px;
+}
+.breadcrumb li a{
+    text-decoration: none;
+    font-size: 14px;
+    color:#303641;
+}
+#customer{
+    background: white;
+    border: 2px solid #303641;
+    padding: 20px;
+    margin-top: 30px;
+    border-top-color: #faa21c;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+}
+#hawker{
+    background: white;
+    border: 2px solid #303641;
+    padding: 20px;
+    margin-top: 30px;
+    border-top-color: #faa21c;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+}
+.box{
+    padding-top: 20px;
+    border-top-color: #faa21c;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+ .box-title {
+    display: inline-block;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.box-header.with-border {
+    border-bottom: 1px solid #f4f4f4;
+}
+.box-header {
+    color: #444;
+    display: block;
+    position: relative;
+    padding-bottom: 15px;
+}
+.add_customer_form{
+    padding-top: 25px;
+}
+.dataTables_filter {
+   float: left !important;
+}
+.dataTables_filter input {
+    height: 26px !important;
+    border-radius: 0px;
+    font-weight: normal;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    padding: 0px 0px;
+    font-size: 10pt;
+}
+.table {
+    color: black;
+    font-size: 14px;
+}
+label {
+    margin-top: 15px;
+}
+.dt-buttons {
+    float: right !important;
+    padding-top: 10px !important;
+    font-size: 12px !important;
+}
+button.dt-button, div.dt-button, a.dt-button {
+    border: inherit !important;
+}
+.dataTables_paginate{
+font-size: 10px;
+padding-top: 20px !important;
+}
+
+.msg{
+    margin-top: 30px;
+}
+.msg h1{
+    font-size: 18px;
+
+text-transform: uppercase;
+
+color: red;
+}
+tbody tr{
+    font-size: 14px !important;
+}

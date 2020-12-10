@@ -1,0 +1,34 @@
+{% extends "cms/layout.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container-fluid">
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <div class="upload_box">
+
+            <form action="{% url 'client_upload' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="title">Company Name</label>
+                        <input type="text" class="form-control" id="cimage_title" placeholder="write company name here"
+                            name="cimage_title">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="upload">Logo Upload</label>
+                        <input type="file" name="cimage" id="">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
