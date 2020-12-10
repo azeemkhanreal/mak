@@ -25,7 +25,7 @@ SECRET_KEY = 'e3i@($*-q^aap--+24b(v54(ga7y6sqn&dy%+)t4a^z-y*k+1$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['128.199.22.147','makartworks.com','www.makartworks.com']
+ALLOWED_HOSTS = ['128.199.22.147','makartworks.com','www.makartworks.com','127.0.0.1']
 
 
 # Application definition
@@ -78,7 +78,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/var/www/maksculptor/db.sqlite3',
+        # 'NAME': '/var/www/maksculptor/db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
