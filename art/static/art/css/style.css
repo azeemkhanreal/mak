@@ -123,15 +123,126 @@ font-size: 15px;
 /*------------
 # HomePage Slideshow
 ------------*/
+/* Pen-specific styles */
 
-  /* Make the image fully responsive */
-  .carousel-inner img {
-    width: 100%;
-    height: 100vh;
+
+.home-container{
+  height: 100%;
+  margin:0px !important;
+  padding: 0px !important;
+}
+
+section {
+  width: 100%;
+}
+
+.logo-sec {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  padding: 1rem;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.logo-sec img{
+  width: 115;
+  height: 70;
+  animation: reveal 5s forwards;
+}
+@keyframes reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
   }
-  .carousel-caption h3, .carousel-caption p{
-    text-shadow: 2px 2px black;
+  to {
+    clip-path: inset(0 0 0 0);
   }
+}
+.logo-sec h2{
+  color:#383838;
+  font-family: Arial,Helvetica,sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 25px;
+  letter-spacing: 5px;
+}
+.logo-sec a{
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer!important;
+  font-size: 14px;
+  color:brown;
+  opacity: 0;
+  animation: opacity-in 4s forwards;
+}
+.logo-sec a:hover{
+  text-decoration: none;
+  color: gray;
+}
+.logo-sec ul {
+  list-style: none;
+  margin: 0;
+  padding: 25px;
+}
+
+.logo-sec ul li{
+  display:inline-block;
+  vertical-align:  middle;
+} 
+.logo-sec ul li a{
+  display: block;
+  font-size: 1.4em;
+  margin: 0 5px;
+  text-decoration: none;
+}
+.logo-sec ul li a i{
+  color:gray;
+  font-size: 12px;
+      opacity: 0;
+    animation: opacity-in 4s forwards;
+}
+@keyframes opacity-in {
+  100% {
+    opacity: 1;
+  }
+}
+.logo-sec ul li a i:hover{
+  color:brown;
+}
+.logo-sec ul li a i:focus{
+  color:brown;
+}
+.logo-sec ul li a i:active{
+  color:brown;
+}
+
+.mobile-logo-content{
+  display: none;
+}
+
+
+
+/* Pattern styles */
+.left-half {
+  /* background-color: #ff9e2c; */
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.right-half {
+  /* background-color: #b6701e; */
+  float: left;
+  width: 50%;
+  height: 100%;
+  /* margin-left: -70px; */
+}
+.center-y{
+  background: linear-gradient(-138deg, transparent 10px, transparent 0) 0 42px, linear-gradient(363deg, transparent 5px, #fff 0) 0 5px;
+  background-position: left bottom;
+  background-repeat: repeat-y;
+  background-size: 10px 10px;
+}
+
+
 
  /*------------
 # Header
@@ -616,6 +727,100 @@ footer .center-half-line{
   #portfolio h1 {
     font-size: 15px;  
   }
-}
+  .left-half{
+    width: 100% !important;
+    height: auto !important;
+    padding: 16px !important;
+  }
+  .right-half{
+    width: 100% !important;
+    height: auto !important;
+  }
+  .logo-sec{
+    transform: initial !important;
+    top: 0;
+    left: 0;
+    padding: 30px;
+  }
+  .logo-sec img{
+    width: 100px;
+    height: 50px;
+  }
+  .logo-sec h2{
+    font-size: 14px;
+    padding: 25px 0px 0px 0px !important;
+  }
+  .logo-sec a{
+    display: none;
+  }
+  .logo-sec ul{
+    display: none;
+  }
+  .intro{
+    height: 60vh !important;
+  }
+  .center-y{
+background: none;
+  }
+  .mobile-logo-content{
+    clear: both;
+    padding: 40px;
+    text-align: center;
+    display: inherit;
+  }
+  .mobile-logo-content a{
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer!important;
+    font-size: 12px;
+    color:gray;
+    opacity: 0;
+    animation: opacity-in 4s forwards;
+  }
+  .mobile-logo-content a:hover{
+    text-decoration: none;
+    color:brown;
+  }
 
+  .mobile-logo-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 25px;
+  }
+  
+  .mobile-logo-content ul li{
+    display:inline-block;
+    vertical-align:  middle;
+  } 
+  .mobile-logo-content ul li a{
+    display: block;
+    font-size: 1.4em;
+    margin: 0 5px;
+    text-decoration: none;
+  }
+  .mobile-logo-content ul li a i{
+    color:gray;
+    font-size: 16px !important;
+        opacity: 0;
+      animation: opacity-in 4s forwards;
+  }
+  @keyframes opacity-in {
+    100% {
+      opacity: 1;
+    }
+  }
+  .mobile-logo-content ul li a i:hover{
+    color:brown;
+  }
+  .mobile-logo-content ul li a i:focus{
+    color:brown;
+  }
+  .mobile-logo-content ul li a i:active{
+    color:brown;
+  }
+  .slider nav a{
+    width: 0.2rem !important;
+    height: 0.2rem !important;
+  }
+}
 
