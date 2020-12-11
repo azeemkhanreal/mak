@@ -1,3 +1,9 @@
+{% url 'index' as home %}
+{% url 'about' as about %}
+{% url 'portfolio' as portfolio %}
+{% url 'client' as client %}
+{% url 'contact' as contact %}
+
 {% load static %}
 
 <!-- Header
@@ -18,8 +24,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="{% url 'about' %}">
+                    <li class="nav-item {% if request.path == about %} active {% endif %}">
+                        <a class="nav-link scroll-link {% if request.path == about %} active {% endif %}" href="{% url 'about' %}">
                             <i class="fa fa-black-tie" aria-hidden="true"></i> &nbsp;About us</a>
                     </li>
                     <!-- <li class="nav-item dropdown">
@@ -33,16 +39,16 @@
                         </div>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link scroll-link" href="{% url 'portfolio' %}"><i class="fa fa-camera" aria-hidden="true"></i> &nbsp; portfolio</a>
+                        <a class="nav-link scroll-link {% if request.path == portfolio %} active {% endif %} " href="{% url 'portfolio' %}"><i class="fa fa-camera" aria-hidden="true"></i> &nbsp; portfolio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="{% url 'client' %}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;Client</a>
+                    <li class="nav-item ">
+                        <a class="nav-link scroll-link {% if request.path == client %} active {% endif %}" href="{% url 'client' %}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;Client</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link scroll-link" href="#section-3"><i class="fa fa-paint-brush" aria-hidden="true"></i> &nbsp;Workshop</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="{% url 'contact' %}"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;contact</a>
+                    <li class="nav-item ">
+                        <a class="nav-link scroll-link {% if request.path == contact %} active {% endif %}" href="{% url 'contact' %}"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;contact</a>
                     </li>
                 </ul>
             </div>

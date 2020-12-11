@@ -21,17 +21,25 @@ class BannerImage(models.Model):
         return self.bimage_title
 
 
-class Customize(models.Model):
+class About(models.Model):
     custom_id = models.AutoField
     founder_message = models.CharField(max_length=10000, null=True, blank=True)
     how_we_work = models.CharField(max_length=10000, null=True, blank=True)
     def __str__(self):
         return self.founder_message
 
+
+class PortfolioCategories(models.Model):
+    name = models.CharField(max_length=300, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+        
 class Post(models.Model):
     title = models.CharField(max_length=300, null=True, blank=True)
-    desc = models.CharField(max_length=300, null=True, blank=True)
-    category = models.CharField(max_length=100, null=True, blank=True)
+    desc =  models.CharField(max_length=300, null=True, blank=True)
+    category = models.ForeignKey(PortfolioCategories,default=None,on_delete=models.CASCADE)
     image = models.ImageField(blank=True)
     def __str__(self):
         return self.title
@@ -52,3 +60,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+

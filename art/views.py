@@ -1,5 +1,5 @@
 from django.shortcuts import HttpResponse, render,get_object_or_404
-from cms.models import BannerImage, Client, Customize,Post,PostImage,Contact
+from cms.models import BannerImage, Client, About,Post,PostImage,Contact,PortfolioCategories
 from django.core.mail import send_mail
 
 def index(request):
@@ -7,11 +7,15 @@ def index(request):
     return render(request, 'art/index.html',{'banner_image':banner_image})
 
 def about(request):
-    main_info = Customize.objects.all()
+    main_info = About.objects.all()
     return render(request, 'art/about.html', {'main_info': main_info})
 def portfolio(request):
     post= Post.objects.all()
-    return render(request, 'art/portfolio.html',{'post':post})
+    categories = PortfolioCategories.objects.all()
+    for cat in categories:
+        cat.full_name = cat.name
+        cat.name = cat.name[:4].lower()
+    return render(request, 'art/portfolio.html',{'post':post,'categories':categories})
 def client(request):
     client_data = Client.objects.all()
     return render(request, 'art/client.html',{'client':client_data})

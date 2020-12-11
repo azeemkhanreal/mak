@@ -19,27 +19,33 @@
 <div id="portfolio">
 
     <div class="container" >
-        <div class="portfolio-menu mt-2 mb-4">
+        <div class="portfolio-menu mt-2">
             <ul>
                 <li class="btn btn-outline-dark active" data-filter="*">All</li>
-                <li class="btn btn-outline-dark" data-filter=".home">Home Interior</li>
+        
+                {% for category in categories  %}
+
+
+                <li class="btn btn-outline-dark" data-filter=".{{ category.name }}">{{category.full_name}}</li>
+                <!-- <li class="btn btn-outline-dark" data-filter=".home">Home Interior</li>
                 <li class="btn btn-outline-dark" data-filter=".corp">Corporate</li>
-                <li class="btn btn-outline-dark text" data-filter=".cont">Contemporary</li>
+                <li class="btn btn-outline-dark text" data-filter=".cont">Contemporary</li> -->
+                {% endfor %}
             </ul>
         </div>
         <div class="portfolio-item row">
 
         {% for item in post %}
-            {% if item.category == "Home Interior" and item.postimage_set.all|length != 1 %}     
-            <div class="item home col-lg-3 col-md-4 col-6 col-sm">
+            {% if item.category.name == "Home Interior" and item.postimage_set.all|length != 0 %}     
+            <div class="item home col-lg-3 col-md-4 col-sm">
                     <a href="/post/{{item.id}}" class="fancylight" data-fancybox-group="light">
                     <img class="img-fluid" src="/media/{{item.image}}" alt=""></a>
                     <h4 style="text-align: center;padding: 10px;font-size: 12px;text-transform: uppercase; ">{{item.pimage_title}}</h4>
                 </div>
             {% endif %}
 
-            {% if item.category == "Corporate" and item.postimage_set.all|length != 1 %}
-                <div class="item corp col-lg-3 col-md-4 col-6 col-sm">
+            {% if item.category.name == "Corporate" and item.postimage_set.all|length != 0 %}
+                <div class="item corp col-lg-3 col-md-4 col-sm">
                     <a href="/post/{{item.id}}" class="fancylight" data-fancybox-group="light">
                     <img class="img-fluid" src="/media/{{item.image}}" alt=""></a>
                     <h4 style="text-align: center;padding: 10px;font-size: 12px;text-transform: uppercase;">{{item.pimage_title}}</h4>
@@ -47,8 +53,8 @@
             {% endif %}
 
 
-            {% if item.category == "Contemporary" and item.postimage_set.all|length != 1  %}
-                <div class="item cont col-lg-3 col-md-4 col-6 col-sm">
+            {% if item.category.name == "Contemporary" and item.postimage_set.all|length != 0  %}
+                <div class="item cont col-lg-3 col-md-4 col-sm">
                     <a href="/post/{{item.id}}" class="fancylight" data-fancybox-group="light">
                     <img class="img-fluid" src="/media/{{item.image}}" alt=""></a>
                     <h4 style="text-align: center;padding: 10px;font-size: 12px;text-transform: uppercase;">{{item.pimage_title}}</h4>
@@ -58,8 +64,8 @@
 
 
 
-            {% if item.category == "Home Interior" and item.postimage_set.all|length == 1 %}  
-            <div class="item home col-lg-3 col-md-4 col-6 col-sm">
+            {% if item.category.name == "Home Interior" and item.postimage_set.all|length == 0 %}  
+            <div class="item home col-lg-3 col-md-4 col-sm">
                 <a href="/media/{{item.image}}" class="fancylight popup-btn" data-fancybox-group="light"> 
                 <img class="img-fluid" src="/media/{{item.image}}" alt="">
                 </a>
@@ -67,8 +73,8 @@
 
             {% endif %}
 
-            {% if item.category == "Corporate" and item.postimage_set.all|length == 1 %}
-            <div class="item corp col-lg-3 col-md-4 col-6 col-sm">
+            {% if item.category.name == "Corporate" and item.postimage_set.all|length == 0 %}
+            <div class="item corp col-lg-3 col-md-4 col-sm">
                 <a href="/media/{{item.image}}" class="fancylight popup-btn" data-fancybox-group="light">
                 <img class="img-fluid" src="/media/{{item.image}}" alt=""></a>
                 <h4 style="text-align: center;padding: 10px;font-size: 12px;text-transform: uppercase;">{{item.pimage_title}}</h4>
@@ -76,8 +82,8 @@
             {% endif %}
 
 
-        {% if item.category == "Contemporary" and item.postimage_set.all|length == 1  %}
-            <div class="item cont col-lg-3 col-md-4 col-6 col-sm">
+        {% if item.category.name == "Contemporary" and item.postimage_set.all|length == 0  %}
+            <div class="item cont col-lg-3 col-md-4 col-sm">
                 <a href="/media/{{item.image}}" class="fancylight popup-btn" data-fancybox-group="light">
                 <img class="img-fluid" src="/media/{{item.image}}" alt=""></a>
                 <h4 style="text-align: center;padding: 10px;font-size: 12px;text-transform: uppercase;">{{item.pimage_title}}</h4>

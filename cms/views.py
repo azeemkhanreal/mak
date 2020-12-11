@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.core.files.storage import FileSystemStorage
-from cms.models import BannerImage, Client, Customize,Post,PostImage
+from cms.models import BannerImage, Client, About,Post,PostImage
 
 # Create your views here.
 
@@ -117,13 +117,13 @@ def customize(request):
         if request.method == 'POST':
             founder_message = request.POST['founder_message']
             how_we_work = request.POST['how_we_work']
-            customize = Customize.objects.get(id=8)
-            customize.founder_message = founder_message
-            customize.how_we_work = how_we_work
-            customize.save()
+            about = About.objects.get(id=8)
+            about.founder_message = founder_message
+            about.how_we_work = how_we_work
+            about.save()
 
-        main_info = Customize.objects.all()
-        return render(request, 'cms/customize.html', {'main_info': main_info,'username': username})
+        about_info = About.objects.all()
+        return render(request, 'cms/customize.html', {'main_info': about_info,'username': username})
     else:
         return render(request, 'cms/login.html')
         return render(request, 'cms/login.html')

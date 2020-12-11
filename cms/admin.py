@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Client, BannerImage, Customize,Post,PostImage,Contact
+from .models import Client, BannerImage, About,Post,PostImage,Contact,PortfolioCategories
 
 class PostImageAdmin(admin.StackedInline):
     model=PostImage
@@ -18,7 +18,6 @@ class PostImageAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Client)
 admin.site.register(BannerImage)
-admin.site.register(Customize)
+admin.site.register(About)
 admin.site.register(Contact)
-
-
+admin.site.register(PortfolioCategories)
